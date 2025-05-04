@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¿Quieres ser mi novia?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #fff0f5;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    button {
+      padding: 20px 40px;
+      font-size: 1.2em;
+      margin: 20px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    #message {
+      margin-top: 50px;
+      font-size: 1.5em;
+      color: #d63384;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>¿Quieres ser mi novia?</h1>
+  <div>
+    <button id="yesBtn">Sí</button>
+    <button id="noBtn">No</button>
+  </div>
+  <div id="message">Me alegra saber que esa sea tu respuesta. Te amo mucho.</div>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const message = document.getElementById('message');
+
+    let noClicks = 0;
+
+    noBtn.addEventListener('click', () => {
+      noClicks++;
+      noBtn.style.fontSize = (1.2 + noClicks * 0.3) + 'em';
+      yesBtn.style.fontSize = Math.max(0.5, 1.2 - noClicks * 0.1) + 'em';
+    });
+
+    yesBtn.addEventListener('click', () => {
+      message.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
